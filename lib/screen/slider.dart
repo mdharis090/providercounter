@@ -19,13 +19,15 @@ class _SliderScreenState extends State<TScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Slider(
-              min: 0,
-              max: 1,
-              value: he.value,
-              onChanged: (val) {
-                he.setvalue(val);
-              }),
+          Consumer(builder: (context, value, child) {
+            return Slider(
+                min: 0,
+                max: 1,
+                value: he.value,
+                onChanged: (val) {
+                  he.setvalue(val);
+                });
+          }),
           Row(
             children: [
               Expanded(
